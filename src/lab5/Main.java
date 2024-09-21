@@ -12,7 +12,7 @@ public class Main {
         double [] estDurTransIO = SplitLines.splitLines(SplitLines.subStrings(list,4)); // массив с пороговыми значениями для параметра Тп, взятый из прочитанного файла
         double probability = ProbabilityWithoutFailures.probabilityCalculations(list); // рассчет P
         double averageRecTimeEstimate = AverageRecoveryTime.averageRecoveryTimeEstimate(list,AverageRecoveryTime.recoveryTime(averageRecoveryTime)); // рассчет Qв
-        double estDurTransformIO = EstimationDurationTransformationIO.estimationDurationIO(list,EstimationDurationTransformationIO.estimateDuration(EstimationDurationTransformationIO.actualConversionDuration(estDurTransIO))); // рассчет Qп
+        double estDurTransformIO = EstimationDurationTransformationIO.estimateDurationIO(EstimationDurationTransformationIO.actualConversionDuration(list,estDurTransIO)); // рассчет Qп
         System.out.println("Вероятность безотказной работы (P): "+probability);
         System.out.println("Оценка по среднему времени восстановления (Qв): "+averageRecTimeEstimate);
         System.out.println("Оценка по продолжительности преобразования входного набора данных в выходной (Qп): "+estDurTransformIO);
